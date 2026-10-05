@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+    <script>
+        var min=new Array();
+        var max=new Array();
+        var città=new Array();
+        function info(regione,zona)
+        {
+            alert("Regione: "+regione+"\nZona: "+zona);
+        }
+        function invio()
+        {
+            let minimo=document.getElementById("min").value;
+            let massimo=document.getElementById("max").value;
+            let cittaa=document.getElementById("città").value;
+            if(minimo==""||massimo==""||cittaa=="") 
+            {
+                alert("Inserire tutti i campi");
+                return false;
+            }
+            if(isNaN(minimo)||isNaN(massimo))
+            {
+                alert("Inserire valori numerici per le temperature");
+                return false;
+            }
+            if(Number(minimo)>Number(massimo))
+            {
+                alert("La temperatura minima non può essere maggiore di quella massima");
+                return false;
+            }
+            else
+            {
+                città.push(cittaa);
+                min.push(minimo);
+                max.push(massimo);
+                alert("Dati inseriti correttamente");
+                cancella();
+                return true;
+            }  
+        }
+        function cancella()
+        {
+            document.getElementById("città").value="";
+            document.getElementById("min").value="";
+            document.getElementById("max").value="";
+        }
+        function totalevisual()
+        {
+            let testo="";
+            for(let i=0;i<città.length;i++)
+            {
+                testo+="Città:"+città[i]+"<br> Temperature:<br> MIN:"+min[i]+" MAX:"+max[i]+"<br><br>";
+            }
+            document.getElementById("display").innerHTML=testo;
+        }
+        function svuota()
+        {
+            città.length=0;
+            min.length=0;
+            max.length=0;
+            document.getElementById("display").innerHTML="Tutti i dati sono stati cancellati.";
+        }
+        function alfabetico()
+        {
+            let testo="<b>Città in ordine alfabetico:</b><br>";
+            let temp=città.slice();
+            temp.sort();
+            for(let i=0;i<temp.length;i++)
+            {
+                testo+=temp[i]+"<br>";
+            } 
+            document.getElementById("display").innerHTML=testo;
+        }
+        function cercamax()
+        {
+            if(max.length==0)
+            {
+                document.getElementById("display").innerHTML="Nessun dato disponibile.";
+                return;
+            }
+            let maxmax=max[0];
+            let cittàmax=città[0];
+            for(let i=1;i<max.length;i++)
+            {
+                if((Number(max[i])>Number(maxmax)))
+                {
+                    maxmax=max[i];
+                    cittàmax=città[i];
+                }
+            }
+            document.getElementById("display").innerHTML="<b>Città con temperatura massima più alta:</b><br>"+cittàmax+" : "+maxmax+"°C";
+        }
+        function cercapos()
+        {
+            if(max.length>3)
+            {
+                let cittàpos=città[3];
+                let minpos=min[3];
+                let maxpos=max[3];
+                document.getElementById("display").innerHTML="<b>Posizione 4 (indice 3):</b><br>"+cittàpos+"<br>MIN: "+minpos+"°C<br>MAX: "+maxpos+"°C";
+            }
+            else
+            {
+                document.getElementById("display").innerHTML="Elemento inesistente.";
+            }
+        }
+        function cercamin()
+        {
+            let valorecerca=document.getElementById("valorecerca").value;
+            if(valorecerca=="")
+            {
+                alert("Inserisci un valore da cercare");
+                return;
+            }
+            let testo="<b>Città con temperatura minima inferiore a "+valorecerca+"°C:</b><br>";
+            for(let i=0;i<min.length;i++)
+            {
+                if((Number(min[i])<Number(valorecerca)))
+                {
+                    testo+=città[i]+" : MIN "+min[i]+"°C<br>";
+                }
+            }
+            document.getElementById("display").innerHTML=testo;
+        }
+    </script>
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: aliceblue;
+        }
+        h1, h2
+        {
+            color: black;
+            text-align: center;
+        }
+        hr
+        {
+            margin: 20px 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+        table
+        {
+            width: 25%;
+            margin: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px;
+        }
+        th, td
+        {
+            padding: 10px;
+            text-align: left;
+        }
+        img
+        {
+            width: 200px;
+            height: auto;
+        }
+        form
+        {
+            width: 30%;
+            height: auto;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px;
+        }
+        button
+        {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: gray;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px;
+        }
+        button[id="svuota"],[id="cancella"]
+        {
+            background-color: red;
+        }
+        button[id="svuota"]:hover,[id="cancella"]:hover
+        {
+            background-color: darkred;
+        }
+        button:hover
+        {
+            background-color: darkgray;
+        }
+        label
+        {
+            display: inline-block;
+            width: 120px;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"]
+        {
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 150px;
+        }
+        input[type="number"]
+        {
+            width: 70px;
+        }
+        fieldset
+        {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        legend
+        {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+        #display
+        {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px;
+        }
+        #box
+        {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature città</h1>
+    <div id="box">
+    <table>
+        <tr>
+        <th>Città</th>
+        <th>Foto</th>
+        </tr>
+        <tr>
+            <td>Bari</td>
+            <td><img src="bari.jpg"  onmouseover="info('Puglia','SUD')"> </td>
+        </tr>
+        <tr>
+            <td>Caserta</td>
+            <td><img src="caserta.jpg"  onmouseover="info('Campania','SUD')"></td>
+        </tr>
+        <tr>
+            <td>Firenze</td>
+            <td><img src="firenze.jpg"  onmouseover="info('Toscana','NORD')"></td>
+        </tr>
+    </table>
+    <form>
+        <legend>DATI CITTA'</legend>
+        <fieldset>
+        <label>Nome Città</label>
+        <input type="text" id="città"> <br>
+        <label>Temperatura MIN</label>
+        <input type="number" id="min"> <br>
+        <label>Temperatura MAX</label>
+        <input type="number" id="max"> <br>
+        <button type="button" onclick="invio()">Invia</button>
+        <button type="button" id="cancella" onclick="cancella()">Cancella</button>
+        </fieldset>
+    </form>
+    </div>
+    <hr>
+    <h2>Funzioni di visualizzazione</h2>
+    <button type="button" onclick="totalevisual()">Visualizza i dati</button>
+    <button type="button" onclick="alfabetico()">Ordine Alfabetico</button>
+    <button type="button" onclick="cercamax()">Cerca MAX</button>
+    <button type="button" onclick="cercapos()">Cerca POS 4</button>
+    <br>
+    <label>Inserisci valore</label>
+    <input type="number" id="valorecerca">
+    <button type="button" onclick="cercamin()">Cerca</button>
+    <button type="button" id="svuota" onclick="svuota()">Svuota</button>
+    <br> 
+    <fieldset>
+        <legend>Output</legend>
+        <div id="display" >Inserisci i dati e clicca su una funzione di visualizzazione.</div>
+    </fieldset>
+</body>
+</html>

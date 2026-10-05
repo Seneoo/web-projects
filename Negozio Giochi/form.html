@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<title>Acquisto – GameZone</title>
+<style>
+body
+{
+font-family: Arial, sans-serif;
+margin: 20px;
+background: white;
+color: black;
+}
+h1
+{
+text-align: center;
+font-style:italic;
+}
+nav
+{
+text-align: center;
+margin: 10px 0 20px;
+background-color: red;
+border:1px solid black;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50%;
+border-radius: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+nav a
+{
+margin: 0 10px;
+text-decoration: none;
+color: white;
+background-color: red;
+}
+nav a:hover
+{
+    background-color: darkred;
+    color:white;
+}
+label
+{
+display: flex;
+margin-top: 12px;
+margin-bottom: 4px;
+}
+input, select
+{
+width: 300px;
+padding: 5px;
+}
+#riepilogo
+{
+margin-top: 16px;
+border: 1px solid red;;
+padding: 10px;
+width: 300px;
+min-height: 60px;
+background: white;
+}
+button
+{
+margin-top: 16px;
+padding: 8px 20px;
+color: red;
+background: white;
+}
+button:hover
+{
+background: red;
+color: white;
+cursor: pointer;
+}
+footer
+{
+margin-top: 15px;
+background-color:red;
+color:white;
+padding-top: 15px;
+display: flex;
+justify-content: center;
+}
+form
+{
+    border:5px solid red;
+    width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+select
+{
+    color:red;
+    background-color: white;
+}
+select:hover
+{
+    background-color: red;
+    color:white;
+}
+input
+{
+    color:red;
+    background-color: white;
+}
+input:hover
+{    background-color: red;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>GameZone</h1>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="form.html"><b>Acquisto</b></a>
+</nav>
+
+<center><h2>Modulo di acquisto</h2></center>
+<form>
+<label>Nome:</label>
+<input type="text" id="nome" oninput="aggiorna()">
+
+<label>Cognome:</label>
+<input type="text" id="cognome" oninput="aggiorna()">
+
+<label>Email:</label>
+<input type="email" id="email" oninput="aggiorna()">
+
+<label>Gioco:</label>
+<select id="gioco" onchange="aggiorna()">
+<option value="">-- Seleziona --</option>
+<option value="GTA V">GTA V</option>
+<option value="Animal Crossing">Animal Crossing</option>
+<option value="Super Mario">Super Mario</option>
+<option value="F1 25">F1 25</option>
+<option value="FC 26">FC 26</option>
+<option value="Minecraft">Minecraft</option>
+<option value="Stardew Valley">Stardew Valley</option>
+</select>
+
+<label>Riepilogo ordine:</label>
+<div id="riepilogo">Compila i campi per vedere il riepilogo.</div>
+
+<button onclick="conferma()">Conferma acquisto</button>
+</form>
+<footer>
+<p>Contattaci: <a href="mailto:gamezonebitonto@gmail.com">gamezonebitonto@gmail.com</a></p>
+</footer>
+
+<script>
+function aggiorna()
+{
+var nome = document.getElementById('nome').value;
+var cognome = document.getElementById('cognome').value;
+var email = document.getElementById('email').value;
+var gioco = document.getElementById('gioco').value;
+var box = document.getElementById('riepilogo');
+
+if (!nome && !cognome && !gioco)
+{
+box.textContent = 'Compila i campi per vedere il riepilogo.';
+return;
+}
+
+var testo = '';
+
+if (nome || cognome)
+testo += 'Cliente: ' + nome + ' ' + cognome + '\n';
+
+if (email)
+testo += 'Email: ' + email + '\n';
+
+if (gioco)
+testo += 'Gioco scelto: ' + gioco;
+
+box.innerText = testo;
+}
+
+function conferma()
+{
+var nome = document.getElementById('nome').value.trim();
+var cognome = document.getElementById('cognome').value.trim();
+var email = document.getElementById('email').value.trim();
+var gioco = document.getElementById('gioco').value;
+
+if (!nome || !cognome)
+{
+alert('Inserisci nome e cognome.');
+return;
+}
+
+if (!email || !email.includes('@'))
+{
+alert('Inserisci una email valida.');
+return;
+}
+
+if (!gioco)
+{
+alert('Seleziona un gioco.');
+return;
+}
+
+alert('Ordine inviato!\n' + nome + ' ' + cognome + '\nGioco: ' + gioco);
+}
+</script>
+
+</body>
+</html>

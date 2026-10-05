@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Riviste</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: lightblue;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color:blue;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin: 4px 2px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: blue;
+        }
+        button.reset {
+            background-color: red;
+        }
+        button.reset:hover {
+            background-color: darkred;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 6px;
+        }
+        .output {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 200px;
+            border-radius: 5px;
+            color:blue;
+            cursor: text;
+            border-color:blue;
+            background-color:lightblue;
+        }
+        input[type="text"]{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Abbonamenti Riviste</h1>
+    <button onclick="mostraOriginali()">Visualizza Originali</button>
+    <button onclick="ordinaAlfabetico()">Ordina Alfabetico (sort)</button>
+    <button onclick="mostraPosizione3()">Rivista Posizione 3</button>
+    <hr>
+    <input type="text" id="riviste" placeholder="Inserisci nome rivista">
+    <input type="number" id="prezzi" placeholder="Inserisci prezzo rivista">
+    <button onclick="aggiungiRivista()">Aggiungi Rivista</button>
+    <br><br>
+    <input type="number" id="sogliaInput" placeholder="Inserisci prezzo da cercare">
+    <button onclick="cercaSottoSoglia()">Cerca per Prezzo</button>
+    <button onclick="mostraStatistiche()">Visualizza Statistiche</button>
+    <button class="reset" onclick="cancella()">Cancella Tutto</button>
+    <div class="output" id="risultato">I risultati appariranno qui...</div>
+</div>
+<script type="text/javascript">
+    var riviste=new Array();
+    var prezzi=new Array();
+    var display=document.getElementById("risultato");
+    function aggiungiRivista()
+    {
+        var nome=document.getElementById("riviste").value;
+        var prezzo=parseFloat(document.getElementById("prezzi").value);
+        if(nome=="" || isNaN(prezzo))
+        {
+            alert("Inserisci un nome e un prezzo validi!");
+            return;
+        }
+        riviste.push(nome);
+        prezzi.push(prezzo);
+        document.getElementById("riviste").value="";
+        document.getElementById("prezzi").value="";
+        display.innerHTML="Rivista aggiunta: "+nome+" ("+prezzo+"€)";
+    }
+    function mostraOriginali()
+    {
+        var out="<b>Dati originali:</b><br>";
+        for(var i=0;i<riviste.length;i++)
+        {
+            out+=riviste[i]+": "+prezzi[i]+"€<br>";
+        }
+        display.innerHTML=out;
+    }
+    function ordinaAlfabetico()
+    {
+        var temp=new Array();
+        for(var i=0;i<riviste.length;i++)
+        {
+            temp[i]=riviste[i]+","+prezzi[i];
+        }
+        temp.sort();
+        var out="<b>Ordine alfabetico:</b><br>";
+        //Riporto i dati negli array originali così le funzioni 
+        //di calcolo e ricerca continuano a funzionare con i numeri
+        for(var i=0;i<temp.length;i++)
+        {
+            var riga=temp[i].split(",");
+            riviste[i]=riga[0]; //nome della rivista
+            prezzi[i]=parseFloat(riga[1]); //prezzo della rivista
+            out+=riviste[i]+": "+prezzi[i]+"€<br>";
+        }
+        display.innerHTML=out;
+    }
+    function mostraPosizione3()
+{
+    if(riviste.length>=3)
+    {
+        var nome=riviste[2];
+        var prezzo=prezzi[2];
+        display.innerHTML="<b>Posizione 3 (indice 2):</b><br>"+nome+": "+prezzo+"€";
+    }
+    else
+    {
+        display.innerHTML="Elemento non disponibile.";
+    }
+}
+    function cercaSottoSoglia()
+    {
+        var soglia=parseFloat(document.getElementById("sogliaInput").value);
+        if(isNaN(soglia))
+        {
+            alert("Inserisci un prezzo valido!");
+            return;
+        }
+        var out="<b>Riviste sotto "+soglia+"€:</b><br>";
+        for(var i=0;i<riviste.length;i++)
+        {
+            if(prezzi[i]<soglia)
+            {
+                out+=riviste[i]+" ("+prezzi[i]+"€)<br>";
+            }
+        }
+        display.innerHTML=out;
+    }
+    function mostraStatistiche()
+    {
+        var somma=0;
+        var max=prezzi[0];
+        for(var i=0;i<prezzi.length;i++)
+        {
+            somma+=prezzi[i];
+            if(prezzi[i]>max)
+            {
+                max=prezzi[i];
+            }
+        } 
+        var media=somma/prezzi.length;
+        display.innerHTML="<b>Statistiche:</b><br>Media prezzi: "+media.toFixed(2)+"€<br>Prezzo più alto: "+max+"€";
+    }
+    function cancella()
+    {
+        riviste.length=0;
+        prezzi.length=0;
+        display.innerHTML="Tutti i dati sono stati cancellati.";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: red;
+}
+p {
+    text-align: justify;
+}
+nav {
+    text-align: center;
+    background-color: red;
+    font-weight: bold;
+    padding: 10px;
+}
+nav a:hover { 
+    color: red;
+    background-color: black;
+    font-style: italic;
+    padding: 20px;
+}
+footer{
+    background-color: gray;
+    text-align: center;
+}

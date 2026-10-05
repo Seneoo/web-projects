@@ -1,0 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Prenotazione Chiosco</title>
+</head>
+<body style="background-color:lightseagreen">
+    <header>
+        <nav>
+        <a href="logo.png">
+            <img src="logo.png" alt="Bitonto Logo" width="120" height="90">
+            <center><a href="home.html">Home</a>
+            <a href="prenotazione.html">Prenotazione</a> </center>
+            <hr>
+        </a>
+        </nav>
+        <h1 align="center">Prenotazione Chiosco</h1>
+    <fieldset>
+        <legend>Inserisci dati</legend>
+    <form action="submit_application.html" method="post">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="surname">Cognome:</label><br>
+        <input type="text" id="surname" name="surname" required><br><br>
+        <label for="languages">Data Prenotazione</label><br>
+        <input type="date" id="languages" name="languages" required><br><br>
+        <label for="education">Luogo</label><br>
+        <select id="education" name="education" required>
+            <option value="diploma">Esterno</option>
+            <option value="laurea">Interno</option>
+        </select>
+        <br> <br>
+        <label for="esperienze">Informazioni extra:</label><br><br>
+        <textarea id="esperienze" name="esperienze" rows="4" cols="50" required></textarea>
+        <br><br>
+        <input type="submit" value="Invia prenotazione">
+        <input type="reset" value="Cancella">
+    </form>
+</fieldset>
+</body>

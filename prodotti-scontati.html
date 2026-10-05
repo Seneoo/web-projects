@@ -1,0 +1,73 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Sconti prodotti</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>Calcolo dello sconto su alcuni prodotti</h2>
+        <form id="calcoli">
+            <fieldset>
+                <legend>Dati per il calcolo</legend>
+                <p>
+                    <label for="prezzo">Prezzo del prodotto</label>
+                    <input type="text" id="prezzo"> €
+                </p>
+                <p>
+                    <label for="quantita">Quantità ordinata</label>
+                    <input type="text" id="quantita"> pezzi
+                </p>
+            </fieldset>
+            <p>
+            <div class="button">
+            <input id="invia" type="button" value="Calcola sconto" onclick="calcolaSconto()"></p>
+            </div>
+            <fieldset>
+                <legend>Risultati</legend>
+                <p>
+                    <label for="sconto">Sconto applicato</label>
+                    <input type="text" id="sconto" readonly="readonly"> €
+                </p>
+            </fieldset>
+        </form>
+        <script type="text/javascript">
+            function calcolaSconto() 
+            {
+                var prezzo=parseFloat(document.getElementById("prezzo").value);
+                var quantita=parseInt(document.getElementById("quantita").value);
+                var sconto=0;
+                if (prezzo>1000 && quantita>5) 
+                {
+                    sconto=prezzo*0.05;
+                }
+                if (prezzo>=2000) 
+                {
+                    sconto=prezzo*0.10;
+                }
+                document.getElementById("sconto").value=sconto.toFixed(2);
+            }
+        </script>
+        <style type="text/css">
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: cadetblue;
+            }
+            fieldset {
+                margin-bottom: 20px;
+                padding: 10px;
+            }
+            label {
+                display: justify;
+                width: 150px;
+            }
+            h2{
+                background-color: greenyellow;
+                width: auto;
+                padding: 10px;
+            }
+            .button{
+                text-align: center;
+            }
+        </style>
+    </body>
+</html>

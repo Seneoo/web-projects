@@ -1,0 +1,46 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Biglietti</title>
+    </head>
+    <body bgcolor="lightblue">
+        <h1 align="center">Acquista biglietti</h1>
+        <form>
+        <fieldset>
+            <legend>Dati Utente</legend>
+            <label for="Cognome">Cognome<label>
+                <input type="text" name="cognome" size="8" required> <br>
+            <label for="Nome">Nome</label>
+            <input type="text" name="nome" size="11" required> <br>
+            <label for="DatadiNascita">Data di Nascita</label>
+            <input type="text" name="datadinascita" size="4"> <br>
+            <label for="citta">Città</label>
+            <input type="text" name="citta" size="12"> <br>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" name="pwd" size="10" required>
+        </fieldset>
+        <fieldset>
+            <legend>CARTA</legend>
+            <label for="numerocarta">Numero Carta</label>
+            <input type="text" name="ncarta" size="6"><br>
+            <label for="CVV">CVV</label>
+            <input type="text" name="cvv" size="13"> <br>
+            <p>Scegli la carta di credito</p>
+            <input type="radio" name="carta" value="visa">Visa
+            <input type="radio" name="carta" value="mastercard">Mastercard
+        </fieldset>
+        <fieldset>
+            <legend>Biglietti</legend>
+            <label for="biglietti">Numero Biglietti</label>
+            <input type="text" name="biglietti" size="3"> <br>
+            <p>Partite</p>
+            <input type="checkbox" name="cb1" value="Pal">Bari-Palermo<br>
+            <input type="checkbox" name="cb2" value="Mant">Mantova-Bari<br>
+            <input type="checkbox" name="cb3" value="Fros">Frosinone-Bari<br>
+        </fieldset>
+        <button type="submit" name="acquista" value="acquista">Acquista</button>
+        <button type="reset" name="cancella" value="cancella">Cancella i dati</button>
+    </body>
+</html>

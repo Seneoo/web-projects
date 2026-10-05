@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ita">
+<head>
+    <script>
+        let nome=prompt("Inserire il nome");
+let cognome=prompt("Inserire il cognome");
+let eta=prompt("Inserire l'età");
+alert("Il tuo nome è: " + nome + " " + cognome + " e hai " + eta + " anni.");
+    </script>
+    <meta charset="UTF-8">
+    <title>mio sito</title>
+    <style>
+        header
+        {
+            background-color: red;
+            height: 80px;
+            padding: 1%;
+        }
+        nav
+        {
+            background-color: aqua;
+            height: 20px;
+            padding: 2%;
+        }
+        a{
+            position: relative;
+            left: 3%;
+        }
+        footer
+        {
+            text-align: center;
+            height: 40px;
+            background-color: green;
+        }
+        p
+        {
+            padding:10px;
+        }
+        .box
+        {
+            display: flex;
+        }
+        .destra
+        {
+            background-color: orange;
+            width: 800px;
+            height: 500px;
+        }
+        .sinistra
+        {
+            width: 2000px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Titolo sito</h1>
+    </header>
+    <nav>
+        <a href="ricerche.html">Ricerche</a>
+        <a href="chisiamo.html">Chi siamo</a>
+        <a href="contatti.html">Contatti</a>
+    </nav>
+    <div class="box">
+        <div class="sinistra">
+            <h2>Articolo di benvenuto</h2>
+            <p>questo è un primo articolo. La struttura utilizzata prevede tutti i nuovi elementi che HTML 5 utilizz per definire una struttura semantica della pagina.</p>
+            <h2>Secondo articolo</h2>
+            <p>Questo secondo articolo è disposto nella stessa section del precedente e pertanto deve essere di pertinenza</p>
+        </div>
+        <div class="destra">
+            <h2>Link utili</h2>
+            <ul>
+                <li>Voce1</li>
+                <li>Voce2</li>
+                <li>Voce3</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>copyright 2017 - azienda xyz - info@informazioni.com</p>
+    </footer>
+</body>
+</html>

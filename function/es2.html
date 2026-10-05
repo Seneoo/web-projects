@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="italian">
+<head>
+    <meta charset="UTF-8">
+    <title>Es2</title>
+</head>
+<body>
+    <script>
+        let prezzoIniziale=parseFloat(prompt("Inserisci il prezzo iniziale del prodotto:"));
+        let percentualeSconto=parseFloat(prompt("Inserisci la percentuale di sconto da applicare:"));
+        function calcolaSconto(prezzoIniziale, percentualeSconto) 
+        {
+            let sconto = (prezzoIniziale * percentualeSconto) / 100;
+            let prezzoFinale = prezzoIniziale - sconto;
+            alert("Prezzo iniziale: " + prezzoIniziale + "€");
+            alert("Percentuale di sconto: " + percentualeSconto + "%");
+            alert("Sconto applicato: " + sconto + "€");
+            alert("Prezzo finale: " + prezzoFinale + "€");
+        }
+        calcolaSconto(prezzoIniziale, percentualeSconto);
+    </script>
+</body>
+<h1>Esercizio 2</h1>
+<hr>
+<h2>Esercitazione JavaScript</h2>
+</html>

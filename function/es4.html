@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="italian">
+<head>
+    <meta charset="UTF-8">
+    <title>Es4</title>
+</head>
+<body>
+    <script>
+        var numero1=parseFloat(prompt("Inserisci il primo numero:"));
+        var numero2=parseFloat(prompt("Inserisci il secondo numero:"));
+        function calcolatrice() 
+        {
+            var s;
+            do
+            {
+                s= parseInt(prompt("MENU: 1.Somma 2.Differenza 3.Prodotto 4.Divisione"));
+                if(s<1||s>4) alert("Scelta non consentita");
+            }while(s<1||s>4);
+            var operazione;
+            switch(s)
+            {
+                case 1:
+                    operazione=numero1+numero2;
+                    break;
+                case 2:
+                    operazione=numero1-numero2;
+                    break;
+                case 3:
+                    operazione=numero1*numero2;
+                    break;
+                case 4:
+                    if(n2==0) alert("Operazione impossibile");
+                    else operazione=numero1/numero2;
+                    break;
+            } 
+            alert("Risultato operazione svolta:"+operazione);
+        }
+        calcolatrice();
+    </script>
+    <h1>Esercizio 4</h1>
+<hr>
+<h2>Esercitazione JavaScript</h2>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form Acquisti Online</title>
+    </head>
+    <body bgcolor="lightgray">
+        <h1>Form Acquisti Online</h1>
+        <hr>
+        <div class="box1">
+        <form id="acquistiForm">
+            <legend>Inserisci i dettagli del prodotto:</legend>
+            <fieldset>
+            <div>
+                <label for="prodotto">Nome del prodotto:</label>
+                <input type="text" id="prodotto" name="prodotto" required>
+            </div>
+            <div>
+                <label for="prezzo">Prezzo:</label>
+                <input type="number" id="prezzo" name="prezzo" step="0.01" required>
+            </div>
+            <button type="button" onclick="aggiungiCarrello()">Aggiungi al carrello</button>
+            </fieldset>
+        </form>
+        <form>
+            <legend>Carrello:</legend>
+            <input type="text" id="totale" name="totale" value="0.00" readonly>
+            <button type="button" onclick="info()">Acquista</button>
+            <button type="button" onclick="reset()">Svuota carrello</button>
+        </form>
+        </div>
+        <hr>
+        <center><p>2026 Acquisti Shop. Tutti i diritti riservati.</p>
+        <a href="acquistishop@gmail.com">Contattaci</a>
+        </center>
+        <script>
+            let totale = 0;
+            function aggiungiCarrello() 
+            {
+                const prodotto = document.getElementById('prodotto').value;
+                const prezzo = parseFloat(document.getElementById('prezzo').value);
+                    totale += prezzo;
+                    document.getElementById('totale').value = totale.toFixed(2);
+                    alert("Hai aggiunto " + prodotto + " al carrello per un prezzo di €" + prezzo.toFixed(2) + ".");
+            }
+            function reset() 
+            {
+                totale = 0;
+                document.getElementById('totale').value = totale.toFixed(2);
+                alert("Il carrello è stato svuotato.");
+            }
+            function info() 
+            {
+                if (totale>0) 
+                {
+                    alert("Il totale del tuo acquisto è €" + totale.toFixed(2) + ". Procedi al pagamento.");
+                } else 
+                {
+                    alert("Il carrello è vuoto. Aggiungi prodotti prima di acquistare.");
+                }
+            }
+        </script>
+        <style>
+            h1
+            {
+                color: black;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            h1:hover
+            {
+                color: darkred;
+            }
+            hr
+            {
+                border: 1px solid black;
+                border-radius: 10px;
+                color:black;
+                width: 60%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            fieldset 
+            {
+                border: 1px solid black;
+                padding: 10px;
+                margin-bottom: 20px;
+                width: 200px;
+                height: 150px;
+                border-radius: 10px;
+            }
+            button 
+            {
+                margin-top: 10px;
+                padding: 5px 10px;
+                background-color: red;
+                color: white;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+            button:hover 
+            {  
+                background-color: darkred;
+            }
+            .box1
+            {
+                padding: 20px;
+                border: 1px solid black;
+                width: 250px;
+                border-radius: 10px;
+                background-color: white;
+                margin: 0 auto;
+            }
+            td
+            {
+                padding: 10px;
+                color: black;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            a
+            {
+                color: red;
+                text-decoration: none;
+            }
+            a:hover
+            {
+                text-decoration: underline;
+            }
+            input
+            {
+                padding: 5px;
+                border: 1px solid black;
+                border-radius: 5px;
+                color:brown;
+            }
+        </style>
+    </body>
+</html>

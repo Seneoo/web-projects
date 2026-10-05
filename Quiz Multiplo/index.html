@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Multiplo</title>
+    <script>
+    function check(form) 
+    {
+        var risposte=0;
+        if (form.d1.value=="a^2") 
+        {
+            document.getElementById("risul1").innerHTML="Risposta 1: giusta";
+            risposte++;
+        } else 
+        {
+            document.getElementById("risul1").innerHTML="Risposta 1: sbagliata";
+        }
+        if (form.d2.value=="b*h") 
+        {
+            document.getElementById("risul2").innerHTML="Risposta 2: giusta";
+            risposte++;
+        } else 
+        {
+            document.getElementById("risul2").innerHTML="Risposta 2: sbagliata";
+        }
+        if (form.d3.value=="(b*h)/2") 
+        {
+            document.getElementById("risul3").innerHTML="Risposta 3: giusta";
+            risposte++;
+        } else 
+        {
+            document.getElementById("risul3").innerHTML="Risposta 3: sbagliata";
+        }
+        document.getElementById("profilo").innerHTML="Nome: " + form.nome.value + " Cognome: " + form.cognome.value;
+        document.getElementById("risultatotot").innerHTML="Risultato totale: " + risposte + "/3";
+    }
+    function resetForm() 
+    {
+        document.getElementById("risul1").innerHTML="";
+        document.getElementById("risul2").innerHTML="";
+        document.getElementById("risul3").innerHTML="";
+        document.getElementById("profilo").innerHTML="";
+        document.getElementById("risultatotot").innerHTML="";
+    }
+    </script>
+    <style>
+    body
+    {
+        background-color: lightblue;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1
+    {
+        color: navy;
+        margin-left: 20px;
+    }
+    h2
+    {
+        color: navy;
+        margin-left: 20px;
+    }
+    hr
+    {
+        border: 1px solid navy;
+        border-radius: 5px;
+        width: 45%;
+        margin-left: 2px;
+    }
+    label
+    {
+        margin-left: 20px;
+    }
+    button
+    {
+        background-color: blue;
+        border-radius: 10px;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    button:hover
+    {
+        background-color: darkblue;
+    }
+    input[type="textbox"]
+    {
+        border-radius: 5px;
+        border: 1px solid navy;
+        padding: 5px;
+        margin: 5px;
+        height: 14px;
+        width: 120px;
+    }
+    p
+    {
+        margin-left: 20px;
+        font-size: 18px;
+    }
+    p#risul1, p#risul2, p#risul3
+    {
+        color: red;
+    }
+    p#profilo, p#risultatotot
+    {
+        color: green;
+    }
+    label
+    {
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Quiz Multiplo</h1>
+    <h2>Esegui il quiz di matematica</h2>
+    <form>
+        <p>Inserisci i tuoi dati</p>
+        <label for="nome">Nome</label>
+        <input type="textbox" id="nome" name="nome">
+        <br>
+        <label for="cognome">Cognome</label>
+        <input type="textbox" id="cognome" name="cognome">
+        <br>
+        <hr>
+        <br>
+        <label for="d1"><b>Area del quadrato</b></label>
+        <br>
+        <input type="radio" id="d1" name="d1" value="a^2">
+        <label for="d1">a^2</label>
+        <input type="radio" id="d2" name="d1" value="2a">
+        <label for="d2">2a</label>
+        <input type="radio" id="d3" name="d1" value="a/2">
+        <label for="d3">a/2</label>
+        <input type="radio" id="d4" name="d1" value="a^3">
+        <label for="d4">a^3</label>
+        <p id="risul1"></p>
+        <br>
+        <label for="d2"><b>Area del rettangolo</b></label>
+        <br>
+        <input type="radio" id="d5" name="d2" value="b*h">
+        <label for="d5">b*h</label>
+        <input type="radio" id="d6" name="d2" value="b+h">
+        <label for="d6">b+h</label>
+        <input type="radio" id="d7" name="d2" value="b/h">
+        <label for="d7">b/h</label>
+        <input type="radio" id="d8" name="d2" value="b^2">
+        <label for="d8">b^2</label>
+        <p id="risul2"></p>
+        <br>
+        <label for="d3"><b>Area del triangolo</b></label>
+        <br>
+        <input type="radio" id="d9" name="d3" value="(b*h)/2">
+        <label for="d9">(b*h)/2</label> 
+        <input type="radio" id="d10" name="d3" value="b*h">
+        <label for="d10">b*h</label>
+        <input type="radio" id="d11" name="d3" value="b+h">
+        <label for="d11">b+h</label>
+        <input type="radio" id="d12" name="d3" value="b/h">
+        <label for="d12">b/h</label>
+        <p id="risul3"></p>
+        <br>
+        <button type="button" onclick="check(this.form)">Controlla</button>
+        <button type="reset" onclick="resetForm()">Reset</button>
+        <p id="profilo"></p>
+        <p id="risultatotot"></p>
+    </form>
+</body>
+</html>

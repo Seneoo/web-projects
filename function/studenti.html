@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Es Studente</title>
+</head>
+<body>
+<h1>Esercizio Studente</h1>
+<hr>
+<h2>Esercitazione JavaScript</h2>
+<script>
+    var Studente = 
+    {
+        matricola:"1234567",
+        nome:"Giuseppe",
+        cognome:"Caldarola",
+        classe:"4AIA",
+        indirizzo:"Informatica",
+        info: function() 
+        {
+            document.write(
+                "Nome: "+this.nome+" "+this.cognome+
+                "\nMatricola: "+this.matricola+
+                "\nClasse: "+this.classe+
+                "\nIndirizzo: "+this.indirizzo
+            );
+        },
+        aggiornaClasse:function(nuovaClasse) 
+        {
+            this.classe=nuovaClasse;
+        },
+        aggiornaIndirizzo:function(nuovoIndirizzo) 
+        {
+            this.indirizzo=nuovoIndirizzo;
+        }
+    };
+    Studente.info();
+    Studente.aggiornaClasse("5 BIA");
+    Studente.aggiornaIndirizzo("Elettrotecnica");
+    Studente.info();
+</script>
+</body>
+</html>

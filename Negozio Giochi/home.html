@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<title>GameZone</title>
+<style>
+body
+{
+font-family: Arial, sans-serif;
+margin: 20px;
+background: white;
+color: black;
+background-color: white;
+}
+h1
+{
+text-align: center;
+font-style: italic;
+}
+nav
+{
+text-align: center;
+margin: 10px 0 20px;
+background-color: red;
+border:1px solid black;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50%;
+border-radius: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+nav a
+{
+margin: 0 10px;
+text-decoration: none;
+color: white;
+background-color: red;
+}
+nav a:hover
+{
+    background-color: darkred;
+    color:white;
+}
+p.desc
+{
+text-align: center;
+margin-bottom: 20px;
+}
+p.info
+{
+margin-top: 20px;
+text-align: center;
+}
+p.info:hover
+{
+    color:red;
+}
+table
+{
+width: 70%;
+margin: 0 auto;
+}
+th, td
+{
+border: 1px solid red;
+padding: 8px;
+text-align: left;
+}
+th
+{
+background: red;
+color: white;
+}
+img.game
+{
+width: 180px;
+height: 80px;
+cursor: pointer;
+}
+footer
+{
+margin-top: 15px;
+background-color:red;
+color:white;
+padding-top: 15px;
+display: flex;
+justify-content: center;
+}
+</style>
+</head>
+<body>
+<h1>GameZone</h1>
+<nav>
+<a href="home.html"><b>Home</b></a>
+<a href="form.html">Acquisto</a>
+</nav>
+<p class="desc">
+Il tuo negozio di videogiochi online. Passa il mouse sull'immagine per i dettagli.
+</p>
+<p class="info">
+GameZone nasce a Bitonto come piccolo negozio gestito da appassionati di videogiochi.
+Nel tempo è diventato un punto di riferimento per chi cerca titoli nuovi ma anche consigli sinceri.
+Siamo aperti dal lunedì al sabato dalle 9:30 alle 13:00 e dalle 16:00 alle 20:30.
+Il mercoledì pomeriggio organizziamo tornei casual tra clienti.
+</p>
+<table>
+<thead>
+<tr>
+<th>Immagine</th>
+<th>Nome</th>
+<th>Prezzo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img class="game" src="gta.jpeg" onmouseenter="mostraInfo('Open world / Azione','18')"></td>
+<td>GTA V</td>
+<td class="price">€ 59,99</td>
+</tr>
+<tr>
+<td><img class="game" src="animal_crossing.jpeg" onmouseenter="mostraInfo('Simulazione / Casual','3')"></td>
+<td>Animal Crossing</td>
+<td class="price">€ 49,99</td>
+</tr>
+<tr>
+<td><img class="game" src="super_mario.jpeg" onmouseenter="mostraInfo('Platform / Avventura','3')"></td>
+<td>Super Mario</td>
+<td class="price">€ 39,99</td>
+</tr>
+<tr>
+<td><img class="game" src="f1_25.jpeg" onmouseenter="mostraInfo('Racing / Sport','3')"></td>
+<td>F1 25</td>
+<td class="price">€ 69,99</td>
+</tr>
+<tr>
+<td><img class="game" src="fc_26.jpeg" onmouseenter="mostraInfo('Calcio / Sport','3')"></td>
+<td>FC 26</td>
+<td class="price">€ 59,99</td>
+</tr>
+<tr>
+<td><img class="game" src="minecraft.jpeg" onmouseenter="mostraInfo('Sandbox / Avventura','7')"></td>
+<td>Minecraft</td>
+<td class="price">€ 29,99</td>
+</tr>
+<tr>
+<td><img class="game" src="stardew_valley.jpeg" onmouseenter="mostraInfo('Gestionale / RPG','3')"></td>
+<td>Stardew Valley</td>
+<td class="price">€ 14,99</td>
+</tr>
+</tbody>
+</table>
+<br>
+<footer>
+<p>Contattaci: <a href="mailto:gamezonebitonto@gmail.com">gamezonebitonto@gmail.com</a></p>
+</footer>
+<script>
+function mostraInfo(genere, pegi)
+{
+alert('Genere: ' + genere + '\nPEGI: ' + pegi);
+}
+</script>
+</body>
+</html>
